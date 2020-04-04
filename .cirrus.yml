@@ -3,6 +3,6 @@ freebsd_instance:
 
 task:
   install_script: pkg install -y git gmake go bash
-  script: cd filebeat && GOPATH=$(pwd)/../.. gmake
+  script: cd filebeat ; export GOPATH=$(pwd)/../.. ; go get github.com/elastic/beats/filebeat/cmd && cd /tmp/src/github.com/elastic/beats && git checkout v7.6.2 && cd - && gmake
   binaries_artifacts:
     path: "filebeat/filebeat"
