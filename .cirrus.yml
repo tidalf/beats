@@ -3,6 +3,6 @@ freebsd_instance:
 
 task:
   install_script: pkg install -y git gmake go bash
-  script: cd filebeat && gmake && cd ../metricbeat && gmake
+  script: cd filebeat && gmake
   binaries_artifacts:
-    path: "*beat/*beat"
+    path: "filebeat/filebeat"
