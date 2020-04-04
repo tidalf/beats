@@ -1,0 +1,7 @@
+image_family: freebsd-11-3-snap
+
+task:
+  install_script: pkg install -y git gmake go bash
+  script: cd filebeat && gmake
+  binaries_artifacts:
+    path: "filebeat/filebeat"
