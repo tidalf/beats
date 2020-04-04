@@ -4,5 +4,5 @@ freebsd_instance:
 task:
   install_script: pkg install -y git gmake go bash
   script: cd filebeat ; export GOPATH=$(pwd)/../.. ; go get github.com/elastic/beats/packetbeat/cmd && go get github.com/elastic/beats/auditbeat/cmd && go get github.com/elastic/beats/metricbeat/cmd && go get github.com/elastic/beats/filebeat/cmd && cd /tmp/src/github.com/elastic/beats && git checkout $CIRRUS_BRANCH && cd - && gmake && cd ../metricbeat && gmake && cd ../auditbeat && gmake && cd ../packetbeat && gmake
-  binaries_artifacts
+  binaries_artifacts:
     path: "*beat/*beat"
