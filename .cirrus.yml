@@ -1,0 +1,8 @@
+freebsd_instance:
+  image_family: freebsd-11-3-snap
+
+task:
+  install_script: pkg install -y git gmake go bash
+  script: cd filebeat && gmake && cd ../metricbeat && gmake
+  binaries_artifacts:
+    path: "*beat/*beat"
